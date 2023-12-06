@@ -1,8 +1,6 @@
 import { Navigate } from "react-router-dom";
-import { useValue } from "../../contextAPI/newsappContext";
 const Protected = ({children }) => {
-    const {checkLogin} = useValue();
-    if (!checkLogin) {
+    if (!localStorage.getItem("token")){
         return <Navigate to="/login" replace />;
     }
     return children;

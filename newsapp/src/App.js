@@ -8,28 +8,28 @@ import DetailView from "./components/news/detailedView/DetailView";
 import Favourite from "./components/Favourite/favourite";
 import Login from "./components/LoginorLogout/Login";
 import Protected from "./components/protectedRoute/protectedRoute";
+import { useEffect } from "react";
 
 function App() {
   const router = createBrowserRouter([
 
     {path:"/",
-     element:<NavbarComponent />,
+     element:<Protected><NavbarComponent /></Protected>,
      children:[
-      { index: true,element :<Protected><News /></Protected>},
-      { path: "/Home" , element:<Protected><News /></Protected>},
-      { path: "/detailedview" , element:<Protected><DetailView /></Protected>},
-      { path: "/favourite" , element:<Protected><Favourite /></Protected>},
+      { index: true,element :<News />},
+      { path: "/home" , element:<News />},
+      { path: "/detailedview" , element:<DetailView />},
+      { path: "/favourite" , element:<Favourite />},
      ]
     },
     {path:"/login", element:<Login />},
     {path:"/signup", element:<Createaccount />},
   ])
+
   return (
-    <NewsProvider >
       <div className="App">
         <RouterProvider router={router} />
       </div>
-    </NewsProvider>
   );
 }
 export default App;

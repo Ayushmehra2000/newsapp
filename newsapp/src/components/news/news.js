@@ -1,5 +1,5 @@
 import React from 'react'
-import { GrFavorite } from "react-icons/gr";
+import { GoHeart } from "react-icons/go";
 import Card from 'react-bootstrap/Card';
 import "./news.css"; 
 import { useValue } from '../../contextAPI/newsappContext';
@@ -23,7 +23,7 @@ const News = () => {
                                 </Card.Text>
                             </Card.Body>
                             <Card.Text className='readmore' onClick={()=>{setDetailedViewElement(ele)}}><NavLink to="/detailedview" >ReadMore...</NavLink></Card.Text>
-                            <GrFavorite className='favourite' onClick={()=>handlefavourite(ele)}/>
+                            <GoHeart className='favourite' onClick={()=>handlefavourite(ele)}/>
                         </Card>
                     </div>
                 </>)

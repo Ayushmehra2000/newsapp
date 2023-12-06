@@ -5,11 +5,16 @@ import Navbar from 'react-bootstrap/Navbar';
 import { GrLogout } from "react-icons/gr";
 
 import "./Navbar.css";
-import { Outlet } from 'react-router-dom';
+import { Navigate, Outlet, useNavigate } from 'react-router-dom';
 import { useValue } from '../../contextAPI/newsappContext';
 
 function NavbarComponent() {
     const {toogleDataView, setToogleDataView,Logout} = useValue();
+    const navigate = useNavigate();
+    const handleLogout = ()=>{
+      Logout();
+      return navigate("/login");
+    }
   return (
     <>
       <Navbar bg="dark" data-bs-theme="dark" id="navbar">
@@ -25,7 +30,7 @@ function NavbarComponent() {
                 <div id={toogleDataView? "mid-circle-true" : "mid-circle-false"} onClick={()=>setToogleDataView(!toogleDataView)}></div>
             </div>
             <div id="Logout">
-                <GrLogout className='logout-icon' onClick={Logout}/>
+                <GrLogout className='logout-icon' onClick={handleLogout}/>
             </div>
         </Container>
       </Navbar>

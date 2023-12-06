@@ -1,22 +1,27 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import "./Login.css";
-import { NavLink } from 'react-router-dom';
-import { createRef } from 'react';
+import { NavLink, Navigate, useNavigate } from 'react-router-dom';
+import { createRef, useEffect } from 'react';
 import { useValue } from '../../contextAPI/newsappContext';
 
 function Login() {
     const email = createRef();
     const password = createRef();
-    const {Login} = useValue();
+    const {Login,checkuserloggedIn} = useValue();
+    const navigate = useNavigate();
     const userLogin = (email,password) =>{
         Login(email,password)
         cleanup();
+        return navigate("/");
     }
     const cleanup = () => {
         password.current.value = '';
         email.current.value = '';
     }
+    useEffect(()=>{
+        checkuserloggedIn();
+    },[])
     return (<>
     <div className="container">
         <Form>
