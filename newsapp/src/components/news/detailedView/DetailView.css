@@ -1,0 +1,27 @@
+.detail-container{
+    width: 90%;
+    height: 100%;
+    display: flex;
+    margin: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.detail-container>*{
+    flex-basis: 50%;
+}
+.detail-container img{
+    width: 30%px;
+    height: 300px;
+    margin: 10px;
+}
+.News-Information{
+    display: inline-block;
+    width:80%;
+    height: 300px;
+
+}
+.News-Information h1{
+    height: 200px;
+    overflow: hidden;
+    overflow-wrap: break-word;
+}

@@ -1,0 +1,30 @@
+#News{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+#News div{
+    flex-basis: 32%;
+    margin-left: 15px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+#text-container{
+    overflow:auto;
+}
+.readmore{
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 10px;
+    position: sticky;
+}
+.readmore:hover{
+    color: blue;
+}
+.favourite{
+    position: absolute;
+    color: red;
+    left: 310px;
+    top: 4px;
+    font-size: 2rem;
+}
